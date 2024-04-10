@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.34804.81
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BEFEFE4F-C9A8-4191-85CD-BBE2FDABC684}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		Postman\v2.1 Collections\Chat Completions.postman_collection.json = Postman\v2.1 Collections\Chat Completions.postman_collection.json
+		README.MD = README.MD
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp-AOAI-SDK", "ConsoleApp-AOAI-SDK\ConsoleApp-AOAI-SDK.csproj", "{602C2BE7-1624-4F9D-9E16-C15ED0D1141A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp-SK-First-App", "ConsoleApp-SK-First-App\ConsoleApp-SK-First-App.csproj", "{9E267DE9-1B16-44C6-9D72-ABE3ABFE125E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp-SK-Plugins", "ConsoleApp-SK-Plugins\ConsoleApp-SK-Plugins.csproj", "{C4E1D95F-61C5-464B-B726-DF3D31A37384}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{602C2BE7-1624-4F9D-9E16-C15ED0D1141A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{602C2BE7-1624-4F9D-9E16-C15ED0D1141A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{602C2BE7-1624-4F9D-9E16-C15ED0D1141A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{602C2BE7-1624-4F9D-9E16-C15ED0D1141A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E267DE9-1B16-44C6-9D72-ABE3ABFE125E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E267DE9-1B16-44C6-9D72-ABE3ABFE125E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E267DE9-1B16-44C6-9D72-ABE3ABFE125E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E267DE9-1B16-44C6-9D72-ABE3ABFE125E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4E1D95F-61C5-464B-B726-DF3D31A37384}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4E1D95F-61C5-464B-B726-DF3D31A37384}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4E1D95F-61C5-464B-B726-DF3D31A37384}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4E1D95F-61C5-464B-B726-DF3D31A37384}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E880DD32-0603-40C3-96ED-CDC9EE0391E8}
+	EndGlobalSection
+EndGlobal

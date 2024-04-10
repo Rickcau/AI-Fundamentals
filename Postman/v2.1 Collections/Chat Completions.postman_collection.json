@@ -1,0 +1,218 @@
+{
+	"info": {
+		"_postman_id": "bed17b8b-ded3-427c-8683-ed1471edfc07",
+		"name": "Chat Completions",
+		"description": "# 🚀 Chat Completion REST API\n\nAll the AI services are implemented using REST APIs so fundementalldd you need to understand how to send the requests and what the response body will be.\n\nHere is the link to the [Azure OpenAI Service REST API reference](https://learn.microsoft.com/en-us/azure/ai-services/openai/reference#chat-completions).\n\n## 🔖How to send a prompt to the Completion Endpoint\n\nIn order to send a prompt to the completion endpoint you need to understand if it will be POST, GET, PUT etc.\n\nFor the completion endpoint you well be sending a POST request that looks like this:\n\n```\nPOST https://{your-resource-name}.openai.azure.com/openai/deployments/{deployment-id}/chat/completions?api-version={api-version}\n\n ```\n\n```\nhttps://rdc-azure-openai.openai.azure.com/openai/deployments/rdc-OpenAI-Demo-deployment/extensions/chat/completions?api-version=2023-08-01-preview\n\n ```\n\n#### **Step 1: Collect the model details**\n\nFor example, using the example above, I would pull these details from Azure.\n\n{your-resource-name} = rdc-north-ai-demo\n\n{deployment-id} = rdc-gpt-16-north\n\n{api-version} = 2024-02-15-preview\n\nUsing these details, our POST request would look like this:\n\n```\nPOST https://rdc-north-ai-demo.openai.azure.com/openai/deployments/rdc-gpt-16-north/chat/completions?api-version=2024-02-15-preview\n\n ```\n\n#### **Step 2: Build the POST request, with api-key and request body**\n\n**Create the necesscary headers:**\n\n> Content-Type: application/json  \napi-key: YOUR_API_KEY \n  \n\n**Create the request body:**\n\n```\n{\"messages\":[\n  {\"role\": \"system\", \"content\": \"You are a helpful assistant, you name is Bob.\"},\n  {\"role\": \"user\", \"content\": \"Why is the sky blue?\"}     \n  ]}\n\n ```\n\n#### **Step 2: Combinding all these datails send the POST request**\n\nExample **curl** command:\n\n```\ncurl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/chat/completions?api-version=2024-02-01 \\\n  -H \"Content-Type: application/json\" \\\n  -H \"api-key: YOUR_API_KEY\" \\\n  -d '{\"messages\":[{\"role\": \"system\", \"content\": \"You are a helpful assistant, you name is Bob.\"},{\"role\": \"user\", \"content\": \"Why is the sky blue?\"}]}'\n\n ```",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10352284"
+	},
+	"item": [
+		{
+			"name": "Completion1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "api-key",
+						"value": "{{completionKey}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"messages\":[\r\n  {\"role\": \"system\", \"content\": \"You are a helpful assistant, you name is Bob.\"},\r\n  {\"role\": \"user\", \"content\": \"Why is the sky blue?\"}     \r\n  ]}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{completionUrl}}/openai/deployments/{{completionDeploymentId}}completions?api-version=2024-02-15-preview",
+					"protocol": "https",
+					"host": [
+						"{{completionUrl}}"
+					],
+					"path": [
+						"openai",
+						"deployments",
+						"{{completionDeploymentId}}completions"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "2024-02-15-preview"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CompletionExtensions",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "api-key",
+						"value": "{{completionExtKey}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"dataSources\": [\r\n    {\r\n      \"type\": \"AzureCognitiveSearch\",\r\n      \"parameters\": {\r\n        \"endpoint\": \"https://rdc-cogservices-openai-demo.search.windows.net\",\r\n        \"indexName\": \"indexhybrid2\",\r\n        \"semanticConfiguration\": \"default\",\r\n        \"queryType\": \"semantic\",\r\n        \"fieldsMapping\": {},\r\n        \"inScope\": true,\r\n        \"roleInformation\": \"You are an AI assistant that helps people find information.\",\r\n        \"filter\": null,\r\n        \"strictness\": 3,\r\n        \"topNDocuments\": 5,\r\n        \"key\": \"oHPpt7P5c5o1lIp1nBKlQ5OUsu67sSQB5G0rx8KajUAzSeCxhbIM\"\r\n      }\r\n    }\r\n  ],\r\n  \"messages\": [\r\n    {\r\n      \"role\": \"system\",\r\n      \"content\": \"You are an AI assistant that helps people find information.\"\r\n    },\r\n    {\r\n      \"role\": \"user\",\r\n      \"content\": \"What are my healthcare benefits\"\r\n    }],\r\n  \"deployment\": \"rdc-OpenAI-Demo-deployment\",\r\n  \"temperature\": 0,\r\n  \"top_p\": 1,\r\n  \"max_tokens\": 800,\r\n  \"stop\": null\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{completionExtUrl}}/openai/deployments/{{completionExtDeployId}}/extensions/chat/completions?api-version=2023-08-01-preview",
+					"protocol": "https",
+					"host": [
+						"{{completionExtUrl}}"
+					],
+					"path": [
+						"openai",
+						"deployments",
+						"{{completionExtDeployId}}",
+						"extensions",
+						"chat",
+						"completions"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "api-version",
+							"value": "2023-08-01-preview"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DALL-E",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "api-key",
+						"value": "{{dalleKey}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"prompt\": \"An avocado chair\",\r\n    \"n\": 1,\r\n    \"size\": \"1024x1024\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{dalleUrl}}/openai/deployments/{{dalleModel}}/images/generations?api-version=2024-02-01",
+					"protocol": "https",
+					"host": [
+						"{{dalleUrl}}"
+					],
+					"path": [
+						"openai",
+						"deployments",
+						"{{dalleModel}}",
+						"images",
+						"generations"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "2024-02-01"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "completionKey",
+			"value": "<YOUR_COMPLETION_KEY>",
+			"type": "string"
+		},
+		{
+			"key": "completionExtKey",
+			"value": "<YOUR_COMPLETION_EXT_KEY>",
+			"type": "string"
+		},
+		{
+			"key": "dalleKey",
+			"value": "<YOUR_DALLE_KEY>",
+			"type": "string"
+		},
+		{
+			"key": "completionDeploymentId",
+			"value": "<YOUR_DEPLOYMNET_ID>",
+			"type": "string"
+		},
+		{
+			"key": "completionUrl",
+			"value": "<YOUR_ENDPOINT>.openai.azure.com",
+			"type": "string"
+		},
+		{
+			"key": "completionExtDeployId",
+			"value": "<YOUR_DEPLOYMNET_ID>",
+			"type": "string"
+		},
+		{
+			"key": "completionExtUrl",
+			"value": "<YOUR_ENDPOINT>.openai.azure.com",
+			"type": "string"
+		},
+		{
+			"key": "dalleUrl",
+			"value": "<YOUR_ENDPOINT>.openai.azure.com",
+			"type": "string"
+		},
+		{
+			"key": "dalleModel",
+			"value": "<YOUR_MODEL>",
+			"type": "string"
+		}
+	]
+}
