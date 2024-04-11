@@ -1,4 +1,4 @@
-# AI Fundamentals
+# AI Fundamentals - From the Basics to Advanced using Semantic Kernel & Plugins
 
 ## Summary
 This session is designed to dive into the fundamentals of AI.  Just like building a house, you need to have a strong foundation, so if you want to be a solid developer of AI solutions, it’s very important to have a strong understanding of the fundamentals.
