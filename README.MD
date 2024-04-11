@@ -116,5 +116,5 @@ You will need to install the Azure Open AI SDK using the following command:
 [Click here to be taken to the Azure Open AI SDK solution](/ConsoleApp-AOAI-SDK/README.md)
 
 ### Semantic Kernel to call the Chat Completion API
-  Using the exact same logic as above but this time with Semantic Kernel.  This is a much more powerful way to build AI solutions.
+Using the exact same logic let's create the sample soluton but using Semantic Kernel.  This is a much more powerful way to build AI solutions.
 
