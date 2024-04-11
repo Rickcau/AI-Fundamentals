@@ -60,13 +60,12 @@ Now, lets dive into some actual code and take a look at the various ways you can
 
 ### Azure Open AI SDK to call the Chat Completion API
 Below is a very simple example of using the Azure Open AI SDK to call the Chat Completion API. 
-
-[Click here to be taken to the Azure Open AI SDK solution](/ConsoleApp-AOAI-SDK/README.md)
-
 You will need to install the Azure Open AI SDK using the following command:
 **dotnet add package Azure.AI.OpenAI --prerelease**
+ <details>
+    <summary><u>Example</u> (<i>click to expand</i>)</summary>
+    <!-- have to be followed by an empty line! -->
 
-   ~~~
         using Azure;
         using Azure.AI.OpenAI;
         using System.Configuration;
@@ -111,8 +110,11 @@ You will need to install the Azure Open AI SDK using the following command:
         ChatResponseMessage responseMessage = response.Value.Choices[0].Message;
         Console.WriteLine($"[{responseMessage.Role.ToString().ToUpperInvariant()}]: {responseMessage.Content}");
         #endregion
-   ~~~
-  
-  ### Semantic Kernel to call the Chat Completion API
+          
+  </details>
+
+[Click here to be taken to the Azure Open AI SDK solution](/ConsoleApp-AOAI-SDK/README.md)
+
+### Semantic Kernel to call the Chat Completion API
   Using the exact same logic as above but this time with Semantic Kernel.  This is a much more powerful way to build AI solutions.
 
