@@ -152,7 +152,7 @@ Using the exact same logic let's create the sample soluton but using Semantic Ke
     Console.ReadLine();
   </details>
 
-  [Click here to be taken to the Azure Open AI SDK solution](/ConsoleApp-SK-First-App/README.md)
+  [Click here to be taken to the Semantic Kernel solution](/ConsoleApp-SK-First-App/README.md)
 
   ### Advanced - Semantic Kernel Chat Completion API with Plugins
   Using the exact same logic, but now let's extend our capabilities by adding a plugins to our logic and also creating a Chat loop.
@@ -223,5 +223,5 @@ Using the exact same logic let's create the sample soluton but using Semantic Ke
         }
   </details>
 
-  [Click here to be taken to the Azure Open AI SDK solution](/ConsoleApp-SK-Plugins/README.md)
+  [Click here to be taken to the Semantic Kernel Plugin solution](/ConsoleApp-SK-Plugins/README.md)
 
