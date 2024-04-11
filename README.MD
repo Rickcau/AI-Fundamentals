@@ -61,6 +61,8 @@ Now, lets dive into some actual code and take a look at the various ways you can
 ### Azure Open AI SDK to call the Chat Completion API
 Below is a very simple example of using the Azure Open AI SDK to call the Chat Completion API. 
 
+[Click here to be taken to the Azure Open AI SDK solution](/ConsoleApp-AOAI-SDK/README.md)
+
 You will need to install the Azure Open AI SDK using the following command:
 **dotnet add package Azure.AI.OpenAI --prerelease**
 
