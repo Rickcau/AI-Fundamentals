@@ -1,7 +1,7 @@
 # AI Fundamentals
 
 ## Summary
-This session is designed to dive into the fundamentals of AI.  Just like building a house, you need to have a strong foundation, so if you want to be a solid developer of AI solutions, it’s very important to have a strong understanding of the fundamentals.
+This session is designed to dive into the fundamentals of AI.  Just like building a house, you need to have a strong foundation, so if you want to be a solid developer of AI solutions, itâ€™s very important to have a strong understanding of the fundamentals.
 
 We are going to cover the following topics:
 - Prompt Engineering; Zero-shot, Few-shot, One-shot, Few-shot, and many-shot learning   
@@ -16,7 +16,7 @@ We are going to cover the following topics:
 ## Prompt Engineering 
 Understanding the basics of Prompt Engineering is critical to building AI solutions.  The following are the basic types of Prompt Engineering that you need to understand:
 Zero-shot, Few-shot, One-shot, Few-shot, and many-shot learning.
-![Prompt Engineering](/assets/prompt-engineering.png)
+![Prompt Engineering](/assets/images/prompt-engineering.png)
 
 You can find a really good [LinkedIn article on this topic here](https://www.linkedin.com/pulse/zero-shot-one-few-learning-prompt-engineering-pathan/).
 
@@ -26,7 +26,7 @@ Agentic workflow is a new way of leveraging the power of LLMs.  Here is an examp
 - Plan the steps needed
 - Writes a first draft
 - Does some reflection, makes changes then completes the task.   
-![agentic workflow](/assets/agentic-workflow.png)
+![agentic workflow](/assets/images/agentic-workflow.png)
 
 ## RAG (Retrieval Augmented Generation
 RAG is one of the most important patterns that is being used with the LLMs today.  For example, if you invoke a plugin to retrieve some data then you hand that data to the LLM for summarization, you are using RAG.  It qualifies as RAG if are you retrieve any data that the LLM has no knowledge of then you use that information with the LLM.  A good example would be allowing your Chat Bot to provide weather information.  LLMs cannot tell you want the current weather is based on the knowledge they have been trained on, it has to be injected into the prompt.  Let's actually break down what RAG really means:
@@ -34,25 +34,25 @@ RAG is one of the most important patterns that is being used with the LLMs today
 - Retrieval = retrieve information from a data source 
 - Augment = add this date to the prompt
 - Generation = allow for generation of better responses using the retrieved data.
-![agentic workflow](/assets/RAG.png)
+![agentic workflow](/assets/images/RAG.png)
 
 ## AOAI REST APIs
 In order to build a solid AI solution, you need to understand the basics of the REST APIs that are available to you.  The following are the basic REST APIs that you need to understand:
 - Chat Completion
 - Extensions Completion
 - As well as any of the other AI REST APIs that you will be using in your solution
-![aAOAI-REST](/assets/AOAI-REST.png)
+![aAOAI-REST](/assets/images/AOAI-REST.png)
 
 I recommend that you use Postman or Curl to test these APIs before you start coding.  This will give you a good understanding of how the APIs work and what you can expect from them.
 I suggest that you read through the [Azure OpenAI REST API documentation](https://learn.microsoft.com/en-us/azure/ai-services/openai/reference#chat-completions) to get a good understanding of how to use the APIs.
 
 ## Postman and Curl
 I suggest that you build out a Postman Collection that you can use to test the various APIs.  This will give you a good understanding of how the APIs work and what you can expect from them.  You can also use Curl to test the APIs from the command line.
-![aAOAI-REST](/assets/postman.png)
+![aAOAI-REST](/assets/images/postman.png)
 
 ## Azure Open AI Playground
 The next step is to use the Azure Open AI Playground to get a better understand of what a Chat Experience might look like.  This will give you a good understanding of what to expect, and you can actually setup a "Chat with your Data" style Chat experience.  You can actually "Deploy to Web App" right from the Azure Open AI Playground.
-![aAOAI-REST](/assets/AOAI-Playground.png)
+![aAOAI-REST](/assets/images/AOAI-Playground.png)
             
 
 ## Code Samples
