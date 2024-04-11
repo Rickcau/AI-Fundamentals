@@ -117,4 +117,111 @@ You will need to install the Azure Open AI SDK using the following command:
 
 ### Semantic Kernel to call the Chat Completion API
 Using the exact same logic let's create the sample soluton but using Semantic Kernel.  This is a much more powerful way to build AI solutions.
+ <details>
+    <summary><u>Example</u> (<i>click to expand</i>)</summary>
+    <!-- have to be followed by an empty line! -->
+
+    // Create a Builder for Creating Kernel Objects
+    var builder = Kernel.CreateBuilder();
+    
+    // Load AI Endpoint Values
+    var openAiDeployment = ConfigurationManager.AppSettings.Get("AzureOpenAIModel");
+    var openAiUri = ConfigurationManager.AppSettings.Get("AzureOpenAIEndpoint");
+    var openAiApiKey = ConfigurationManager.AppSettings.Get("AzureOpenAIKey");
+
+    // Add ChatCompletion Service
+    builder.Services.AddAzureOpenAIChatCompletion(
+       deploymentName: openAiDeployment!,
+       endpoint: openAiUri!,
+       apiKey: openAiApiKey!);
+    
+    // Construct Kernel, ChatHistory Get instance of ChatCompletion Service
+    var kernel = builder.Build();
+    ChatHistory history = [];
+    history.AddSystemMessage("You are a helpful assistant. You will talk like a pirate.");
+    history.AddUserMessage("Can you help me?");
+    history.AddAssistantMessage("Arrrr! Of course, me hearty! What can I do for ye?");
+    history.AddUserMessage("What's the best way to train a parrot?");
+    var chatCompletionService = kernel.GetRequiredService<IChatCompletionService>();
+
+    // Step 5 Send Prompt Get Respons
+    var prompt = "Why is the Sky blue?";
+    var result = await chatCompletionService.GetChatMessageContentAsync(history);
+    Console.WriteLine(result);
+    Console.WriteLine("\nPress enter to end.");
+    Console.ReadLine();
+  </details>
+
+  [Click here to be taken to the Azure Open AI SDK solution](/ConsoleApp-SK-First-App/README.md)
+
+  ### Advanced - Semantic Kernel Chat Completion API with Plugins
+  Using the exact same logic, but now let's extend our capabilities by adding a plugins to our logic and also creating a Chat loop.
+  <details>
+    <summary><u>Example</u> (<i>click to expand</i>)</summary>
+    <!-- have to be followed by an empty line! -->
+
+     
+        // Create a Builder for Creating Kernel Objects
+        var builder = Kernel.CreateBuilder();
+    
+        // Load AI Endpoint Values
+        var openAiDeployment = ConfigurationManager.AppSettings.Get("AzureOpenAIModel");
+        var openAiUri = ConfigurationManager.AppSettings.Get("AzureOpenAIEndpoint");
+        var openAiApiKey = ConfigurationManager.AppSettings.Get("AzureOpenAIKey");
+
+        // Add ChatCompletion Service
+        builder.Services.AddAzureOpenAIChatCompletion(
+           deploymentName: openAiDeployment!,
+           endpoint: openAiUri!,
+           apiKey: openAiApiKey!);
+
+        // Add our Plugins
+        builder.Plugins.AddFromType<UniswapV3SubgraphPlugin>();
+        builder.Plugins.AddFromType<LightOnPlugin>();
+        builder.Plugins.AddFromType<WeatherPlugin>();
+        
+        // Construct Kernel, ChatHistory Get instance of ChatCompletion Service
+        var kernel = builder.Build();
+        ChatHistory history = [];
+        var chatCompletionService = kernel.GetRequiredService<IChatCompletionService>();
+
+        // Create Chat Loop
+        while (true)
+        {
+            Console.Write(">> ");
+            var userMessage = Console.ReadLine();
+            if (userMessage != "Exit")
+            {
+                history.AddUserMessage(userMessage!);
+
+                // Not really being used in this example but we will use it in future examples
+                OpenAIPromptExecutionSettings openAIPromptExecutionSettings = new()
+                {
+                    ToolCallBehavior = ToolCallBehavior.AutoInvokeKernelFunctions
+                };
+
+                try
+                {
+                    var result = await chatCompletionService.GetChatMessageContentAsync(
+                        history,
+                        executionSettings: openAIPromptExecutionSettings,
+                        kernel: kernel);
+
+                    Console.WriteLine("<< " + result);
+
+                    if (result.Content != null)
+                    {
+                        history.AddAssistantMessage(result.Content);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error: {ex.Message}");
+                }
+            }
+            else break;
+        }
+  </details>
+
+  [Click here to be taken to the Azure Open AI SDK solution](/ConsoleApp-SK-Plugins/README.md)
 

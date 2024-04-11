@@ -38,7 +38,7 @@ builder.Plugins.AddFromType<WeatherPlugin>();
 #endregion
 
 
-#region Step 4 - Construct Kernel, ChatHistory Get instance of ChatCompletion Service
+#region Step 5 - Construct Kernel, ChatHistory Get instance of ChatCompletion Service
 // Construct instance of Kernel using Builder Settings
 var kernel = builder.Build();
 
@@ -47,7 +47,7 @@ var chatCompletionService = kernel.GetRequiredService<IChatCompletionService>();
 
 #endregion
 
-#region Step 5 - Chat Loop
+#region Step 6 - Chat Loop
 
 while (true)
 {
