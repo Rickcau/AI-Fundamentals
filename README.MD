@@ -5,7 +5,7 @@ We start out by covering the fundemental concepts of Prompt Engineering, then we
 This session is designed to dive into the fundamentals of AI.  Just like building a house, you need to have a strong foundation, so if you want to be a solid developer of AI solutions, it’s very important to have a strong understanding of the fundamentals.
 
 We are going to cover the following topics:
-- Prompt Engineering; Zero-shot, Few-shot, One-shot, Few-shot, and many-shot learning   
+- Prompt Engineering; Zero-shot, One-shot, Few-shot, and many-shot learning   
 - Agentic Workflow; How it will play an imporant role in the future of AI
 - RAG (Retrieval Augmented Generation) and how it can be used to improve your AI solutons
 - Understanding Chat Completion and Extensions Completion Endpoints
