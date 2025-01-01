@@ -1,6 +1,9 @@
 # AI Fundamentals - Basics to Advanced
 We start out by covering the fundemental concepts of Prompt Engineering, then we move into using Postman to understand the request/response bodies as well as the APIs.  Next, we move into writing our first Chat Completion app using the Azure OpenAI SDK, then we use the same logic, but with the Semantic Kernel and to top it all off, we enhance our soluton using Semantic Kernel Plugins.
 
+## LICENSE
+The [MIT License](./LICENSE) applies to all the solutions / projects / examples included in this repository.  
+
 ## Summary
 This session is designed to dive into the fundamentals of AI.  Just like building a house, you need to have a strong foundation, so if you want to be a solid developer of AI solutions, it’s very important to have a strong understanding of the fundamentals.
 
